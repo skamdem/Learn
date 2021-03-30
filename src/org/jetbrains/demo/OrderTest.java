@@ -10,7 +10,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class OrderTest {
     @Test
     void shouldBeAbleToCreateANewOrder(){
-        Order order = new Order(23);
+        String actualDescription = "description";
+        Order order = new Order(23, actualDescription);
         assertNotNull(order);
+        assertEquals(actualDescription, order.getDescription());
     }
 }

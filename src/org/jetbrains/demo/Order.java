@@ -1,5 +1,6 @@
 package org.jetbrains.demo;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -7,13 +8,27 @@ import java.util.Objects;
  */
 public class Order {
     private int id;
+    private String description;
+    private final ArrayList<LineItem> lineItems;
 
-    public Order(int id) {
+    public Order(int id, String description) {
         this.id = id;
+        this.description = description;
+        lineItems = new ArrayList<>();
     }
 
     public int getId() {
         return id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double price(){
+        return lineItems.stream()
+                .mapToDouble(LineItem::getPrice)
+                .sum();
     }
 
     @Override

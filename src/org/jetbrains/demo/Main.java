@@ -5,6 +5,6 @@ package org.jetbrains.demo;
  */
 public class Main {
     public static void main(String[] args) {
-        new Order(1);
+        new Order(1, "description");
     }
 }
